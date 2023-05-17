@@ -1,0 +1,175 @@
+---
+title: "EDA_LA1"
+author: "Chandan ,Darshan"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r}
+happy <- read.csv(file.choose())
+
+```
+```{r}
+library(dplyr)
+
+```
+
+```{r}
+happy
+```
+
+```{r}
+class(happy)
+```
+
+```{r}
+str(happy)
+```
+
+```{r}
+head(happy)
+```
+
+```{r}
+tail(happy)
+```
+
+```{r}
+nrow(happy)
+```
+
+```{r}
+ncol(happy)
+```
+
+```{r}
+names(happy)
+```
+
+```{r}
+rownames(happy)
+```
+
+```{r}
+colnames(happy)
+```
+
+```{r}
+selected_happy <- select(happy,Score)
+selected_happy
+```
+
+```{r}
+selected_happy1 <- select(happy,Country.or.region)
+selected_happy1
+```
+
+
+```{r}
+arrange(happy, Score)
+```
+
+```{r}
+group_by(happy,Country.or.region )
+```
+
+```{r}
+summary(happy)
+```
+
+
+```{r}
+sum(happy$Score)
+```
+
+```{r}
+mean(happy$Score)
+```
+
+```{r}
+median(happy$Score)
+```
+
+```{r}
+sd(happy$Score)
+```
+
+```{r}
+cor(happy$Score,happy$GDP.per.capita)
+```
+
+```{r}
+table(happy$GDP.per.capita)
+```
+
+```{r}
+hist(happy$Score)
+```
+
+```{r}
+plot(x = happy$Score, y = happy$GDP.per.capita)
+```
+
+```{r}
+boxplot(happy$Score,happy$GDP.per.capita)
+```
+
+```{r}
+pie(table(happy$Overall.rank))
+```
+
+```{r}
+happy1 <- read.csv(file.choose())
+
+```
+
+```{r}
+ls()
+```
+
+```{r}
+colnames(happy1)
+```
+
+```{r}
+merge(happy, happy1, by = "GDP.per.capita")
+```
+
+```{r}
+rbind(happy, happy1)
+```
+
+```{r}
+cbind(happy, happy1)
+```
+
+```{r}
+score_dup<-as.vector(happy$Score)
+score_dup
+```
+
+```{r}
+tapply(happy$Score,INDEX = happy$Overall.rank, mean)
+```
+```{r}
+plot(happy)
+```
+```{r}
+cumprod(happy1$Score)
+```
+```{r}
+cummax(happy$GDP.per.capita)
+```
+
+```{r}
+cummin(happy$Score)
+
+```
+```{r}
+rev(happy$Country.or.region)
+```
+
+
+
